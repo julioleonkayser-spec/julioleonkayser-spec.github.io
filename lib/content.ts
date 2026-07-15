@@ -87,6 +87,8 @@ export interface Project {
   description: string;
   image?: string;
   logo?: { src: string; bg: string };
+  /** Visual nativo (SVG) para cards sin fotografía — ver components/ProjectVisuals.tsx */
+  visual?: 'code-lines';
   rows: { label: string; value: string; href?: string; offline?: boolean }[];
 }
 
@@ -115,7 +117,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'ReWarm (founder)',
-    image: '/images/rewarm-logo.jpg',
+    visual: 'code-lines',
     description:
       'AI voice agent that reactivates dormant real-estate leads for brokerages, qualifying prospects and transferring hot leads to agents in real time — with real paying customers. Pipeline: lead ingestion → dynamic LLM prompt generation → voice synthesis → structured call logging.',
     rows: [

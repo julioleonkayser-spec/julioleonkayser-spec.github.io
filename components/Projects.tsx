@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { PROJECTS, type Project } from '@/lib/content';
+import { CodeLinesVisual } from '@/components/ProjectVisuals';
 
 /**
  * Carrusel horizontal del original: overflow-x-scroll con scrollbar oculta y banda
@@ -8,6 +9,9 @@ import { PROJECTS, type Project } from '@/lib/content';
  * ocupar el mismo espacio visual que la imagen ancha de los cards del original.
  */
 function ProjectVisual({ project }: { project: Project }) {
+  if (project.visual === 'code-lines') {
+    return <CodeLinesVisual label={project.title} />;
+  }
   if (project.image) {
     return (
       <Image
