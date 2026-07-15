@@ -52,7 +52,7 @@ export const CAREERS: TimelineEntry[] = [
       "Designed a market expansion strategy identifying 3 new distribution channels with a projected 25% revenue uplift for Ecuador's leading thread manufacturer. Delivered an AI-driven competitive intelligence tool, adopted by company leadership, cutting manual research time by ~70%.",
   },
   {
-    period: 'March 2024 - Present',
+    period: 'March 2024 - May 2024',
     title: 'Travel Specialist / Travel Operations Intern @ World of TUI',
     place: 'Berlin, Germany',
     description:
