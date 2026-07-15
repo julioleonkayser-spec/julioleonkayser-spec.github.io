@@ -45,7 +45,7 @@ export const CAREERS: TimelineEntry[] = [
       "Completed Citi's Investment Banking job simulation through Forage. Built a target company profile for Best Buy, constructed a 3-statement income model, and performed trading comparables analysis.",
   },
   {
-    period: 'September 2024 - Present',
+    period: 'September 2024 - October 2025',
     title: 'Market & Market Expansion Analyst @ Agualitsa',
     place: 'Guayaquil, Ecuador',
     description:
