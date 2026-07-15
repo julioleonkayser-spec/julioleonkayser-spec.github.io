@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'ReWarm (founder)',
-    image: '/images/rewarm-logo.png',
+    image: '/images/rewarm-logo.jpg',
     description:
       'AI voice agent that reactivates dormant real-estate leads for brokerages, qualifying prospects and transferring hot leads to agents in real time — with real paying customers. Pipeline: lead ingestion → dynamic LLM prompt generation → voice synthesis → structured call logging.',
     rows: [
