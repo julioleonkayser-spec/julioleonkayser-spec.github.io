@@ -117,3 +117,134 @@ export function CodeLinesVisual({ label }: { label: string }) {
     </svg>
   );
 }
+
+const SWATCHES = [
+  { hex: '#fed96f', label: '#fed96f' },
+  { hex: '#fabd69', label: '#fabd69' },
+  { hex: '#f98e4a', label: '#f98e4a' },
+  { hex: '#317bd0', label: '#317bd0' },
+  { hex: '#c81e60', label: '#c81e60' },
+];
+
+/** Guías de spacing con los valores reales del sistema (escaladas ×3 para legibilidad). */
+const SPACING_GUIDES = [
+  { label: '24px', px: 24 },
+  { label: '32px', px: 32 },
+  { label: '64px', px: 64 },
+];
+
+const GRID_COLS = 12;
+const GRID_MARGIN = 64;
+const GRID_GUTTER = 24;
+
+export function StyleGuideVisual({ label }: { label: string }) {
+  const colWidth = (1280 - GRID_MARGIN * 2 - GRID_GUTTER * (GRID_COLS - 1)) / GRID_COLS;
+  return (
+    <svg
+      viewBox="0 0 1280 720"
+      preserveAspectRatio="xMidYMid slice"
+      className="w-full aspect-video"
+      role="img"
+      aria-label={label}
+    >
+      <rect width="1280" height="720" fill="#fff" />
+      {/* Grid de columnas del layout (container + gutters) */}
+      {Array.from({ length: GRID_COLS }, (_, i) => (
+        <rect
+          key={`col-${i}`}
+          x={GRID_MARGIN + i * (colWidth + GRID_GUTTER)}
+          y={0}
+          width={colWidth}
+          height={720}
+          fill="#fed96f"
+          opacity={0.14}
+        />
+      ))}
+      {/* Muestra tipográfica: el pairing real del sitio */}
+      <text x={88} y={172} fontSize={132} fill="#222" style={{ fontFamily: 'var(--font-marker)' }}>
+        Aa
+      </text>
+      <text
+        x={88}
+        y={214}
+        fontSize={20}
+        fill="#6b7280"
+        style={{ fontFamily: 'var(--font-work-sans)' }}
+      >
+        Permanent Marker
+      </text>
+      <text
+        x={340}
+        y={172}
+        fontSize={132}
+        fontWeight={700}
+        fill="#222"
+        style={{ fontFamily: 'var(--font-work-sans)' }}
+      >
+        Aa
+      </text>
+      <text
+        x={340}
+        y={214}
+        fontSize={20}
+        fill="#6b7280"
+        style={{ fontFamily: 'var(--font-work-sans)' }}
+      >
+        Work Sans 400 / 700
+      </text>
+      {/* Swatches de la paleta extraída */}
+      {SWATCHES.map((swatch, i) => (
+        <g key={swatch.hex}>
+          <rect x={88 + i * 152} y={280} width={120} height={120} fill={swatch.hex} />
+          <text
+            x={88 + i * 152}
+            y={432}
+            fontSize={19}
+            fill="#6b7280"
+            style={{ fontFamily: 'var(--font-work-sans)' }}
+          >
+            {swatch.label}
+          </text>
+        </g>
+      ))}
+      {/* Guías de spacing: cotas con los valores documentados */}
+      {SPACING_GUIDES.map((guide, i) => {
+        const x = 88 + i * 300;
+        const width = guide.px * 3;
+        return (
+          <g key={guide.label} stroke="#d1d5db" strokeWidth={2}>
+            <line x1={x} y1={512} x2={x} y2={552} />
+            <line x1={x + width} y1={512} x2={x + width} y2={552} />
+            <line x1={x} y1={532} x2={x + width} y2={532} />
+            <text
+              x={x + width + 16}
+              y={539}
+              fontSize={19}
+              fill="#6b7280"
+              stroke="none"
+              style={{ fontFamily: 'var(--font-work-sans)' }}
+            >
+              {guide.label}
+            </text>
+          </g>
+        );
+      })}
+      {/* Cota del container real (920px máx) */}
+      <g stroke="#d1d5db" strokeWidth={2}>
+        <line x1={88} y1={608} x2={88} y2={648} />
+        <line x1={1008} y1={608} x2={1008} y2={648} />
+        <line x1={88} y1={628} x2={1008} y2={628} />
+        <text
+          x={1028}
+          y={635}
+          fontSize={19}
+          fill="#6b7280"
+          stroke="none"
+          style={{ fontFamily: 'var(--font-work-sans)' }}
+        >
+          920px container
+        </text>
+      </g>
+    </svg>
+  );
+}

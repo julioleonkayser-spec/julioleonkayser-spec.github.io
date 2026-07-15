@@ -126,7 +126,7 @@ export interface Project {
   image?: string;
   logo?: { src: string; bg: string };
   /** Visual nativo (SVG) para cards sin fotografía — ver components/ProjectVisuals.tsx */
-  visual?: 'code-lines';
+  visual?: 'code-lines' | 'style-guide';
   rows: { label: string; value: string; href?: string; offline?: boolean }[];
 }
 
@@ -138,7 +138,13 @@ export const PROJECTS: Project[] = [
       'Case & document management for accounting studios and audit firms in LatAm. Clients upload documents straight from their phone, an internal engine auto-escalates stalled engagements and tracks task ownership, and an append-only audit log keeps per-tenant row-level isolation (row-level security).',
     rows: [
       { label: 'Role', value: 'Founder' },
-      { label: 'Stack', value: 'Next.js + PostgreSQL on Vercel' },
+      { label: 'Core', value: 'Next.js, TypeScript, Supabase (Postgres + Auth + Row Level Security)' },
+      {
+        label: 'Infra',
+        value:
+          'Turso (edge data layer), Vercel Blob (document storage), Vercel Cron (scheduled auto-escalation), Resend (transactional email), Sentry (observability), n8n (internal workflow automation), Python (data-processing scripts)',
+      },
+      { label: 'Tooling', value: 'Developed in Cursor' },
       { label: 'Status', value: '3 firms in production · $150/mo target price' },
     ],
   },
@@ -150,6 +156,7 @@ export const PROJECTS: Project[] = [
     rows: [
       { label: 'Achievement', value: 'Top 10 — Project Destined AI x CRE Hackathon' },
       { label: 'Pipeline', value: '6 agents, PDF → IC memo' },
+      { label: 'Stack', value: 'Python — base language of the agent pipeline' },
       { label: 'Techniques', value: 'AI Agents, Tool-Calling, Financial Extraction, Underwriting' },
     ],
   },
@@ -160,8 +167,31 @@ export const PROJECTS: Project[] = [
       'AI voice agent that reactivates dormant real-estate leads for brokerages, qualifying prospects and transferring hot leads to agents in real time — with real paying customers. Pipeline: lead ingestion → dynamic LLM prompt generation → voice synthesis → structured call logging.',
     rows: [
       { label: 'Role', value: 'Founder' },
+      {
+        label: 'Stack',
+        value:
+          'n8n (voice pipeline orchestration), Supabase (data & structured call logging), Vercel Blob, Vercel Cron, Resend (notifications), JavaScript',
+      },
+      { label: 'Tooling', value: 'Developed in Cursor' },
       { label: 'Status', value: 'Real paying customers' },
-      { label: 'Pipeline', value: 'Lead ingestion → LLM prompts → voice synthesis → call logging' },
+    ],
+  },
+  {
+    title: 'This Portfolio — Design System Replication',
+    visual: 'style-guide',
+    description:
+      'Rebuilt the complete design system of an external reference site from scratch — typography, palette, spacing and motion extracted from the live CSS and rendered DOM, verified with section-by-section visual QA — then adapted it to entirely different content without losing visual fidelity.',
+    rows: [
+      {
+        label: 'Achievement',
+        value:
+          'Every design token traced in DESIGN_SYSTEM.md — extracted, adapted, or flagged as unverified',
+      },
+      {
+        label: 'Stack',
+        value: 'Next.js, Tailwind CSS, Playwright (computed-CSS/DOM extraction for visual QA), Vercel',
+      },
+      { label: 'Status', value: "Live — you're looking at it" },
     ],
   },
 ];
