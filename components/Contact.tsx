@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="md:col-start-2 md:col-span-4">
           <p className="ml-px text-xl text-gray-500">
             I&apos;m open to backend AI engineering opportunities, agentic systems work and
-            interesting collaborations. Based in {LINKS.location}.
+            interesting collaborations — based in {LINKS.location}
           </p>
           <div className="mt-4 text-center">
             <a href={LINKS.email} className="font-bold uppercase text-blue-400">

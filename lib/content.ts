@@ -93,7 +93,7 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     title: 'Auditix (founder)',
-    logo: { src: '/images/auditix-logo.png', bg: '#0f172a' },
+    logo: { src: '/images/auditix-logo.png', bg: '#ffffff' },
     description:
       'Case & document management for accounting studios and audit firms in LatAm. Clients upload documents straight from their phone, an internal engine auto-escalates stalled engagements and tracks task ownership, and an append-only audit log keeps per-tenant row-level isolation (row-level security).',
     rows: [
@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'ReWarm (founder)',
-    logo: { src: '/images/rewarm-logo.png', bg: '#111827' },
+    image: '/images/rewarm-logo.png',
     description:
       'AI voice agent that reactivates dormant real-estate leads for brokerages, qualifying prospects and transferring hot leads to agents in real time — with real paying customers. Pipeline: lead ingestion → dynamic LLM prompt generation → voice synthesis → structured call logging.',
     rows: [

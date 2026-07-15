@@ -11,7 +11,7 @@ function ProjectVisual({ project }: { project: Project }) {
   if (project.image) {
     return (
       <Image
-        className="w-full"
+        className="w-full aspect-video object-cover"
         src={project.image}
         alt={project.title}
         width={1280}
@@ -26,7 +26,7 @@ function ProjectVisual({ project }: { project: Project }) {
         className="w-full aspect-video flex items-center justify-center"
         style={{ backgroundColor: project.logo.bg }}
       >
-        <Image src={project.logo.src} alt={project.title} width={220} height={220} />
+        <Image src={project.logo.src} alt={project.title} width={300} height={300} />
       </div>
     );
   }
