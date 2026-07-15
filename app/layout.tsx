@@ -17,6 +17,7 @@ const permanentMarker = Permanent_Marker({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://julio-portfolio-lake.vercel.app'),
   title: 'Julio León - AI Engineer & Product Builder - Interactive Resume',
   description:
     "Hi, I'm an AI Engineer & Product Builder creating agentic AI pipelines, production RAG systems and full-stack products. Founder of Auditix and ReWarm.",

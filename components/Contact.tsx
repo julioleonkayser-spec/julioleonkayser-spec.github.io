@@ -19,7 +19,7 @@ export default function Contact() {
             interesting collaborations — based in {LINKS.location}
           </p>
           <div className="mt-4 text-center">
-            <a href={LINKS.email} className="font-bold uppercase text-blue-400">
+            <a href={LINKS.email} className="font-bold uppercase text-blue-400 text-sm md:text-base">
               julioleonkayser@gmail.com
             </a>
             <span className="mx-2 text-gray-400">|</span>
