@@ -12,6 +12,9 @@ export default function Footer() {
           <a href={LINKS.linkedin} aria-label="LinkedIn" target="_blank" rel="noreferrer">
             <i className="text-3xl icon-linkedin-1 hover:text-white" />
           </a>
+          <a href={LINKS.github} aria-label="GitHub" target="_blank" rel="noreferrer">
+            <i className="text-3xl icon-github-circled hover:text-white" />
+          </a>
           <a href={LINKS.email} aria-label="Email">
             {/* fontello no incluye glifo de mail: SVG inline al mismo tamaño (adaptación declarada) */}
             <svg

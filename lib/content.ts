@@ -1,6 +1,7 @@
 export const LINKS = {
   email: 'mailto:julioleonkayser@gmail.com',
   linkedin: 'https://linkedin.com/in/julio-leon-13a1783b1',
+  github: 'https://github.com/julioleonkayser-spec',
   location: 'Washington, D.C.',
 } as const;
 
