@@ -30,7 +30,7 @@ export const CAREERS: TimelineEntry[] = [
       'Applying institutional analytical frameworks (cap rate, NOI, rent roll, cash flow projections) to evaluate office, retail and multifamily assets under core, value-add and opportunistic strategies.',
   },
   {
-    period: 'June 2026 - May 2026',
+    period: 'May 2026 - June 2026',
     title: 'Backend Engineer @ Wells Fargo (Forage job simulation)',
     place: 'Remote',
     description:
