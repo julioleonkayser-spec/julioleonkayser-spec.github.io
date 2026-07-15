@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Réplica de pascalvangemert.nl — valores extraídos del CSS compilado real.
+ * Ver DESIGN_SYSTEM.md para la trazabilidad de cada token.
+ */
+
+/* Icon font original del sitio (fontello), descargada del propio sitio. */
+@font-face {
+  font-family: 'fontello';
+  src:
+    url('/fonts/fontello.woff2') format('woff2'),
+    url('/fonts/fontello.woff') format('woff'),
+    url('/fonts/fontello.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: 400;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+}
+
+.icon-star:before { content: '\e800'; }
+.icon-star-empty:before { content: '\e801'; }
+.icon-twitter-1:before { content: '\f099'; }
+.icon-github-circled:before { content: '\f09b'; }
+.icon-linkedin-1:before { content: '\f0e1'; }
+
+/* Regla tipográfica global exacta del original. */
+h1,
+h2,
+.font-marker {
+  font-family: var(--font-marker), var(--font-work-sans), sans-serif;
+}
+
+/* Fondo del body: gradiente radial exacto del original (visible en el hero). */
+body {
+  font-family: var(--font-work-sans), sans-serif;
+  --color-text: #0f070a;
+  --color-bg: #fabd69;
+  --color-bg-2: #f98e4a;
+  --color-link: #317bd0;
+  background: radial-gradient(ellipse at 100% 0, #fed96f 0, var(--color-bg) 50%, var(--color-bg-2) 115%);
+}
+
+/* Carrusel de proyectos: scrollbar oculta (comportamiento observado en el original). */
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
