@@ -17,25 +17,27 @@ const permanentMarker = Permanent_Marker({
 });
 
 export const metadata: Metadata = {
-  title: 'Julio León - Backend AI Engineer - Interactive Resume',
+  title: 'Julio León - AI Engineer & Product Builder - Interactive Resume',
   description:
-    "Hi, I'm a Backend AI Engineer building agentic AI pipelines, production RAG systems and API integrations. Founder of Auditix and ReWarm.",
+    "Hi, I'm an AI Engineer & Product Builder creating agentic AI pipelines, production RAG systems and full-stack products. Founder of Auditix and ReWarm.",
   authors: [{ name: 'Julio León' }],
   keywords: [
     'Julio León',
-    'Backend AI Engineer',
+    'AI Engineer',
+    'Product Builder',
     'Interactive Resume',
     'AI agents',
     'RAG',
+    'Full-stack',
     'Auditix',
     'ReWarm',
   ],
   openGraph: {
-    url: 'https://julio-portfolio.vercel.app/',
+    url: 'https://julio-portfolio-lake.vercel.app/',
     type: 'website',
     title: 'Julio León - Interactive Resume',
     description:
-      "Hi, I'm a Backend AI Engineer building agentic AI pipelines, production RAG systems and API integrations.",
+      "Hi, I'm an AI Engineer & Product Builder creating agentic AI pipelines, production RAG systems and full-stack products.",
     images: ['/images/julio.jpeg'],
   },
 };

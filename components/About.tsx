@@ -19,12 +19,16 @@ export default function About() {
             About me
           </h2>
           <p className="text-lg leading-loose">
-            Hi, my name is <strong>Julio León</strong>. I&apos;m a <strong>Backend AI Engineer</strong>{' '}
-            with experience building <strong>agentic AI pipelines</strong>, API integrations and{' '}
+            Hi, my name is <strong>Julio León</strong>. I&apos;m an{' '}
+            <strong>AI Engineer &amp; Product Builder</strong> with experience building{' '}
+            <strong>agentic AI pipelines</strong>, API integrations and{' '}
             <strong>production RAG systems</strong>, grounded in Business Analytics &amp; Artificial
             Intelligence (American University). I&apos;m the founder of <strong>Auditix</strong> and{' '}
-            <strong>ReWarm</strong>. Trilingual (English, Spanish, German), with experience in
-            multicultural teams across the US, Ecuador and Germany.
+            <strong>ReWarm</strong>. My range runs from agent engineering to{' '}
+            <strong>frontend and product design</strong>: Auditix ships a full production UI used
+            daily by three accounting firms, and this site itself is a third-party design system I
+            extracted and rebuilt with section-by-section visual QA. Trilingual (English, Spanish,
+            German), with experience in multicultural teams across the US, Ecuador and Germany.
           </p>
         </div>
       </div>

@@ -93,6 +93,8 @@ export const SKILLS_LEFT: { heading: string; items: Skill[] }[] = [
       { name: 'Supabase / PostgreSQL', stars: 4 },
       { name: 'Row Level Security (multi-tenancy)', stars: 4 },
       { name: 'Next.js', stars: 4 },
+      { name: 'TypeScript', stars: 4 },
+      { name: 'Tailwind CSS', stars: 4 },
       { name: 'Vercel', stars: 4 },
       { name: 'CI/CD (GitHub Actions)', stars: 3 },
     ],

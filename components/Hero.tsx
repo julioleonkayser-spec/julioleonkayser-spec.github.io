@@ -22,9 +22,10 @@ export default function Hero() {
       />
       <div className="md:ml-6 z-10 text-center">
         <h1 className="text-5xl mb-2 tracking-wider font-bold">Julio León</h1>
-        <p className="ml-px text-2xl text-black font-marker">..Backend AI Engineer</p>
+        <p className="ml-px text-2xl text-black font-marker">..AI Engineer &amp; Product Builder</p>
         <p className="mt-4 max-w-xl px-6 text-lg">
-          I build agentic AI pipelines, production RAG systems and API integrations.
+          I build agentic AI pipelines, production RAG systems and full-stack products — from
+          backend to interface.
         </p>
         <div className="mt-8 flex items-center justify-center gap-4">
           <a

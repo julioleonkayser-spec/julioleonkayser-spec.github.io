@@ -43,7 +43,8 @@ export default function Abilities() {
         </div>
         <div className="md:col-start-2 md:col-span-4">
           <p className="ml-px text-xl text-gray-500">
-            Here is a summary of my most important skills and abilities as a Backend AI Engineer:
+            Here is a summary of my most important skills and abilities as an AI Engineer &amp;
+            Product Builder:
           </p>
         </div>
       </div>
