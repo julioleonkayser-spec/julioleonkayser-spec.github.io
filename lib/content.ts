@@ -16,7 +16,7 @@ export interface TimelineEntry {
 
 export const CAREERS: TimelineEntry[] = [
   {
-    period: 'Current - June 2026',
+    period: 'June 2026 - Present',
     title: 'Backend AI Engineer Intern @ FlyRank AI (remote)',
     place: 'Washington, D.C.',
     description:
@@ -24,7 +24,7 @@ export const CAREERS: TimelineEntry[] = [
     logo: '/images/flyrank.jpeg',
   },
   {
-    period: 'Current - June 2026',
+    period: 'June 2026 - Present',
     title: 'CRE Analyst Fellow / AI CRE Analyst @ Project Destined (remote)',
     place: 'Washington, D.C.',
     description:
@@ -37,6 +37,41 @@ export const CAREERS: TimelineEntry[] = [
     description:
       'Designed and implemented a relational data model with 4 JPA entities for a financial portfolio management system.',
   },
+  {
+    period: 'April 2026 - May 2026',
+    title: 'Investment Banking Analyst @ Citi (Forage job simulation)',
+    place: 'Remote',
+    description:
+      "Completed Citi's Investment Banking job simulation through Forage. Built a target company profile for Best Buy, constructed a 3-statement income model, and performed trading comparables analysis.",
+  },
+  {
+    period: 'September 2024 - Present',
+    title: 'Market & Market Expansion Analyst @ Agualitsa',
+    place: 'Guayaquil, Ecuador',
+    description:
+      "Designed a market expansion strategy identifying 3 new distribution channels with a projected 25% revenue uplift for Ecuador's leading thread manufacturer. Delivered an AI-driven competitive intelligence tool, adopted by company leadership, cutting manual research time by ~70%.",
+  },
+  {
+    period: 'March 2024 - Present',
+    title: 'Travel Specialist / Travel Operations Intern @ World of TUI',
+    place: 'Berlin, Germany',
+    description:
+      'Identified operational inefficiencies across the Berlin hub and built KPI reporting dashboards for leadership, collaborating with multicultural teams in English, Spanish, and German.',
+  },
+];
+
+export interface Certification {
+  name: string;
+  issuer?: string;
+}
+
+export const CERTIFICATIONS: Certification[] = [
+  { name: 'Claude Code in Action', issuer: 'Anthropic Academy' },
+  { name: 'Introduction to Agent Skills', issuer: 'Anthropic Academy' },
+  { name: 'AI Fluency Framework & Foundations', issuer: 'Anthropic Academy' },
+  { name: 'Investment Banking Job Simulation', issuer: 'Citi · Forage' },
+  { name: 'Investment Management Job Simulation', issuer: 'Fidelity International · Forage' },
+  { name: 'Introduction to Marketing' },
 ];
 
 export interface Skill {
