@@ -248,3 +248,146 @@ export function StyleGuideVisual({ label }: { label: string }) {
     </svg>
   );
 }
+
+/**
+ * Canvas de decisiones: nodos conectados por aristas tipadas según la respuesta.
+ * Mismo tratamiento que StyleGuideVisual (canvas claro, aspect-video full-width) y
+ * solo tokens de la paleta extraída: blue = YES, pink = NO (el verde no existe en
+ * el sistema, así que la rama afirmativa se pinta con el azul de enlaces).
+ */
+interface FlowNode {
+  id: string;
+  x: number;
+  y: number;
+}
+
+const NODE_WIDTH = 216;
+const NODE_HEIGHT = 96;
+
+const FLOW_NODES: FlowNode[] = [
+  { id: 'root', x: 88, y: 312 },
+  { id: 'yes-1', x: 420, y: 152 },
+  { id: 'no-1', x: 420, y: 472 },
+  { id: 'yes-2', x: 752, y: 72 },
+  { id: 'no-2', x: 752, y: 272 },
+  { id: 'end', x: 752, y: 512 },
+];
+
+/** from → to, y por qué handle sale la arista. */
+const FLOW_EDGES: { from: string; to: string; answer: 'yes' | 'no' }[] = [
+  { from: 'root', to: 'yes-1', answer: 'yes' },
+  { from: 'root', to: 'no-1', answer: 'no' },
+  { from: 'yes-1', to: 'yes-2', answer: 'yes' },
+  { from: 'yes-1', to: 'no-2', answer: 'no' },
+  { from: 'no-1', to: 'end', answer: 'yes' },
+];
+
+/** Barras abstractas del prompt dentro de cada nodo. */
+const NODE_PROMPT_BARS: Record<string, number[]> = {
+  root: [150, 96],
+  'yes-1': [132, 78],
+  'no-1': [144, 64],
+  'yes-2': [120, 86],
+  'no-2': [156, 72],
+  end: [108, 90],
+};
+
+function nodeById(id: string): FlowNode {
+  const node = FLOW_NODES.find((candidate) => candidate.id === id);
+  if (!node) {
+    throw new Error(`Unknown flow node: ${id}`);
+  }
+  return node;
+}
+
+export function DecisionFlowVisual({ label }: { label: string }) {
+  return (
+    <svg
+      viewBox="0 0 1280 720"
+      preserveAspectRatio="xMidYMid slice"
+      className="w-full aspect-video"
+      role="img"
+      aria-label={label}
+    >
+      <defs>
+        <radialGradient id="flow-tint" cx="100%" cy="0%" r="140%">
+          <stop offset="0%" stopColor={PALETTE.yellow} stopOpacity="0.22" />
+          <stop offset="50%" stopColor={PALETTE.amber} stopOpacity="0.12" />
+          <stop offset="100%" stopColor={PALETTE.orange} stopOpacity="0.05" />
+        </radialGradient>
+        <pattern id="flow-dots" width="32" height="32" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="2" fill="#d1d5db" />
+        </pattern>
+      </defs>
+      <rect width="1280" height="720" fill="#fff" />
+      <rect width="1280" height="720" fill="url(#flow-dots)" />
+
+      {/* Aristas: curva Bézier horizontal, como las de un canvas de nodos. */}
+      {FLOW_EDGES.map((edge) => {
+        const from = nodeById(edge.from);
+        const to = nodeById(edge.to);
+        const x1 = from.x + NODE_WIDTH;
+        const y1 = from.y + NODE_HEIGHT / 2;
+        const x2 = to.x;
+        const y2 = to.y + NODE_HEIGHT / 2;
+        const midX = (x1 + x2) / 2;
+        const color = edge.answer === 'yes' ? PALETTE.blue : PALETTE.pink;
+        return (
+          <g key={`${edge.from}-${edge.to}`}>
+            <path
+              d={`M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`}
+              stroke={color}
+              strokeWidth={4}
+              fill="none"
+            />
+            <circle cx={x2} cy={y2} r={7} fill={color} />
+            <text
+              x={midX}
+              y={(y1 + y2) / 2 - 12}
+              fontSize={20}
+              fontWeight={700}
+              fill={color}
+              textAnchor="middle"
+              style={{ fontFamily: 'var(--font-work-sans)' }}
+            >
+              {edge.answer === 'yes' ? 'YES' : 'NO'}
+            </text>
+          </g>
+        );
+      })}
+
+      {/* Nodos: card blanca con borde, título abstracto y dos handles. */}
+      {FLOW_NODES.map((node) => (
+        <g key={node.id}>
+          <rect
+            x={node.x}
+            y={node.y}
+            width={NODE_WIDTH}
+            height={NODE_HEIGHT}
+            rx={10}
+            fill="#fff"
+            stroke={PALETTE.gray500}
+            strokeWidth={3}
+          />
+          <rect x={node.x} y={node.y} width={NODE_WIDTH} height={10} rx={5} fill={PALETTE.yellow} />
+          {NODE_PROMPT_BARS[node.id].map((width, i) => (
+            <rect
+              key={`${node.id}-bar-${i}`}
+              x={node.x + 20}
+              y={node.y + 34 + i * 22}
+              width={width}
+              height={12}
+              rx={6}
+              fill={i === 0 ? PALETTE.gray600 : PALETTE.gray500}
+              opacity={i === 0 ? 0.85 : 0.45}
+            />
+          ))}
+          {/* Handles yes/no en el borde derecho */}
+          <circle cx={node.x + NODE_WIDTH} cy={node.y + NODE_HEIGHT / 2} r={7} fill={PALETTE.blue} />
+        </g>
+      ))}
+
+      <rect width="1280" height="720" fill="url(#flow-tint)" />
+    </svg>
+  );
+}

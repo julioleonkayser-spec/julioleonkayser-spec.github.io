@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { PROJECTS, type Project } from '@/lib/content';
-import { CodeLinesVisual, StyleGuideVisual } from '@/components/ProjectVisuals';
+import { CodeLinesVisual, DecisionFlowVisual, StyleGuideVisual } from '@/components/ProjectVisuals';
 
 /**
  * Carrusel horizontal del original: overflow-x-scroll con scrollbar oculta y banda
@@ -14,6 +14,9 @@ function ProjectVisual({ project }: { project: Project }) {
   }
   if (project.visual === 'style-guide') {
     return <StyleGuideVisual label={project.title} />;
+  }
+  if (project.visual === 'decision-flow') {
+    return <DecisionFlowVisual label={project.title} />;
   }
   if (project.image) {
     return (
