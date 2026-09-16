@@ -21,6 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # enablement: true activa Pages con source=GitHub Actions en el primer run,
+      # así no hace falta tocar Settings -> Pages a mano.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -36,8 +42,6 @@ jobs:
       # y Next emite todos sus assets bajo _next/.
       - name: Disable Jekyll processing
         run: touch out/.nojekyll
-
-      - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
