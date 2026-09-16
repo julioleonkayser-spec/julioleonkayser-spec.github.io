@@ -118,3 +118,30 @@ animaciones que el original no tiene. Se replican los tres comportamientos reale
 
 Guardadas en scratchpad (`pvg-extract/`): `ref-hero-desktop.png` (1440×900),
 `ref-desktop-full.png` (1440×7599), `ref-mobile-full.png` (375×9957) + recortes por sección.
+
+## AÑADIDOS PROPIOS (no existen en el original)
+
+Elementos que el sitio de referencia no tiene y que aquí se construyen desde los tokens
+ya extraídos. Se listan aparte para no contaminar la trazabilidad de arriba: ninguno es
+un valor extraído, todos son composición sobre la paleta y la tipografía verificadas.
+
+- **Nav sticky** (`components/Nav.tsx`). El original no lleva navegación. La barra usa
+  `yellow-400` (#fed96f), el `uppercase font-bold` de los tags de sección y el
+  `hover:text-white` de los iconos sociales del footer. Ancho propio (`max-w-[1200px]`)
+  en lugar del container de 920px: es chrome, no contenido, y los 7 destinos no caben
+  en 920px. Por debajo de `lg` colapsa en hamburguesa.
+- **Font Awesome 6 Free** (`app/layout.tsx`). El original usa fontello, que aquí se
+  conserva para las estrellas de Abilities y los sociales del footer — pero su subconjunto
+  solo contiene 5 glifos (`\e800`, `\e801`, `\f099`, `\f09b`, `\f0e1`), insuficiente para
+  la navegación. Font Awesome entra por npm y se sirve desde el bundle propio: sin CDN
+  y sin recurso de terceros bloqueando el render.
+- **Sección Reflections** (`components/Reflections.tsx`). Replica el patrón de sección de
+  Certifications (tag amarillo, subtítulo `text-xl` gris, divisor `gray-300`, borde
+  `yellow-400`) sin introducir tratamiento nuevo.
+- **Visual `decision-flow`** (`components/ProjectVisuals.tsx`). Mismo contrato que los
+  visuales ya existentes (viewBox 1280×720, `aspect-video`, tinte radial del hero por
+  encima). Las aristas usan `blue-400` para YES y `red-400` para NO: el verde no existe
+  en la paleta extraída, así que la rama afirmativa toma el azul de enlaces.
+- **`scroll-margin-top` + `scroll-behavior`** (`app/globals.css`). Necesarios para que el
+  nav sticky no tape el título de la sección al saltar por ancla. Con opt-out de
+  `prefers-reduced-motion`.
