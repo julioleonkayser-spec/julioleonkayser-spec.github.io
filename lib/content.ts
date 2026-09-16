@@ -126,7 +126,7 @@ export interface Project {
   image?: string;
   logo?: { src: string; bg: string };
   /** Visual nativo (SVG) para cards sin fotografía — ver components/ProjectVisuals.tsx */
-  visual?: 'code-lines' | 'style-guide';
+  visual?: 'code-lines' | 'style-guide' | 'decision-flow';
   rows: { label: string; value: string; href?: string; offline?: boolean }[];
 }
 
@@ -146,6 +146,36 @@ export const PROJECTS: Project[] = [
       },
       { label: 'Tooling', value: 'Developed in Cursor' },
       { label: 'Status', value: '3 firms in production · $150/mo target price' },
+    ],
+  },
+  {
+    title: 'FlyRank AI — Backend Engineering Track',
+    logo: { src: '/images/flyrank.jpeg', bg: '#ffffff' },
+    description:
+      'Production-grade backend systems built through the FlyRank AI internship: a containerised CRUD API on PostgreSQL, a JWT-secured API with Supabase as the identity provider, a schema-validated polite scraper that survives broken pages, and an LLM-backed screening endpoint with a closed schema, timeouts, bounded retries and a cost log. The through-line is the same in all four: strict contracts at the boundary and honest failure instead of silent fallback.',
+    rows: [
+      { label: 'Role', value: 'Backend AI Engineer Intern' },
+      {
+        label: 'Task API',
+        value: 'Node.js + Express + PostgreSQL in Docker Compose, with a persistent volume',
+        href: 'https://github.com/julioleonkayser-spec/FlyRank-W2',
+      },
+      {
+        label: 'Auth API',
+        value: 'FastAPI + Supabase Auth — JWT verification via a reusable dependency, Swagger bearer flow',
+        href: 'https://github.com/julioleonkayser-spec/flyrank-auth-login-protect',
+      },
+      {
+        label: 'Polite scraper',
+        value: 'Python + Requests + BeautifulSoup + Pydantic — rate-limited, cached, schema-validated, run reports',
+        href: 'https://github.com/julioleonkayser-spec/flyrank-polite-scraper',
+      },
+      {
+        label: 'Deal Screener',
+        value: 'FastAPI + LLM — closed schema, repair-once-then-quarantine, cost log and kill switch',
+        href: 'https://github.com/julioleonkayser-spec/deal-screener',
+      },
+      { label: 'Status', value: 'Ongoing — June 2026 to present' },
     ],
   },
   {
@@ -177,6 +207,22 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    title: 'AI Decision Flow',
+    visual: 'decision-flow',
+    description:
+      'Visual workflow tool where every node on the canvas is a YES/NO decision answered by Claude. Edges are typed by the answer, so the same graph takes different paths for different inputs. Each node runs as its own durable step, and the canvas reports what every node answered — including failures — instead of hanging.',
+    rows: [
+      {
+        label: 'Repo',
+        value: 'github.com/julioleonkayser-spec/ai-decision-flow',
+        href: 'https://github.com/julioleonkayser-spec/ai-decision-flow',
+      },
+      { label: 'Stack', value: 'Next.js (App Router), TypeScript, Tailwind, React Flow, Inngest' },
+      { label: 'Model', value: 'Claude — strict YES/NO system prompt with a parser that rejects anything else' },
+      { label: 'Techniques', value: 'Durable step execution, graph walking, typed edges, visible error states' },
+    ],
+  },
+  {
     title: 'This Portfolio — Design System Replication',
     visual: 'style-guide',
     description:
@@ -193,5 +239,66 @@ export const PROJECTS: Project[] = [
       },
       { label: 'Status', value: "Live — you're looking at it" },
     ],
+  },
+];
+
+/* ------------------------------------------------------------------ *
+ * Navegación
+ * ------------------------------------------------------------------ */
+
+export interface NavItem {
+  label: string;
+  href: string;
+  /** Clase de Font Awesome 6 Free (self-hosted, ver app/layout.tsx). */
+  icon: string;
+}
+
+/** Un item por sección renderizada en app/page.tsx — el nav cubre el sitio entero. */
+export const NAV_ITEMS: NavItem[] = [
+  { label: 'About', href: '#about-me', icon: 'fa-solid fa-user' },
+  { label: 'Careers', href: '#careers', icon: 'fa-solid fa-briefcase' },
+  { label: 'Abilities', href: '#abilities', icon: 'fa-solid fa-star' },
+  { label: 'Certifications', href: '#certifications', icon: 'fa-solid fa-award' },
+  { label: 'Projects', href: '#projects', icon: 'fa-solid fa-diagram-project' },
+  { label: 'Reflections', href: '#reflections', icon: 'fa-solid fa-pen-nib' },
+  { label: 'Contact', href: '#contact', icon: 'fa-solid fa-paper-plane' },
+];
+
+/* ------------------------------------------------------------------ *
+ * Reflections
+ * ------------------------------------------------------------------ */
+
+export interface Reflection {
+  /** Título del prompt, tal y como lo pide la asignación. */
+  prompt: string;
+  /** Clase de Font Awesome 6 Free. */
+  icon: string;
+  /** Pista de una línea sobre qué responder. No se renderiza como respuesta. */
+  hint: string;
+  /**
+   * La respuesta escrita por Julio. Cadena vacía => la card se pinta como
+   * placeholder "to be written". Rellenar aquí y la card se renderiza sola.
+   */
+  answer: string;
+}
+
+export const REFLECTIONS: Reflection[] = [
+  {
+    prompt: 'Building Websites with AI',
+    icon: 'fa-solid fa-robot',
+    hint: 'What worked, what did not, and where AI actually changed how this site got built.',
+    answer: '',
+  },
+  {
+    prompt: 'Interview Question',
+    icon: 'fa-solid fa-comments',
+    hint: 'The interview question and your answer.',
+    answer: '',
+  },
+  {
+    prompt: 'LinkedIn Post',
+    icon: 'fa-brands fa-linkedin',
+    hint: 'The post you published, and what you took away from writing it.',
+    answer: '',
   },
 ];
