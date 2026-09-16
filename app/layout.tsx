@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Work_Sans, Permanent_Marker } from 'next/font/google';
+// Font Awesome 6 Free, self-hosted vía npm (sin CDN: nada de terceros bloqueando el render).
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './globals.css';
 
 const workSans = Work_Sans({

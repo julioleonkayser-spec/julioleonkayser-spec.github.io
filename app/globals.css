@@ -66,3 +66,22 @@ body {
 .hide-scroll-bar::-webkit-scrollbar {
   display: none;
 }
+
+/*
+ * Navegación por anclas: desplazamiento suave y compensación de la altura del
+ * nav sticky, para que el título de la sección no quede tapado al saltar.
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
