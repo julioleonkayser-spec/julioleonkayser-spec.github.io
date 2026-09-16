@@ -23,9 +23,9 @@ export default function About() {
             <strong>AI Engineer &amp; Product Builder</strong> with experience building{' '}
             <strong>agentic AI pipelines</strong>, API integrations and{' '}
             <strong>production RAG systems</strong>, grounded in Business Analytics &amp; Artificial
-            Intelligence (American University). I&apos;m the founder of <strong>Auditix</strong> and{' '}
+            Intelligence (American University). I&apos;m the founder of <strong>ReadyCase OS</strong> and{' '}
             <strong>ReWarm</strong>. My range runs from agent engineering to{' '}
-            <strong>frontend and product design</strong>: Auditix ships a full production UI used
+            <strong>frontend and product design</strong>: ReadyCase OS ships a full production UI used
             daily by three accounting firms, and this site itself is a third-party design system I
             extracted and rebuilt with section-by-section visual QA. Trilingual (English, Spanish,
             German), with experience in multicultural teams across the US, Ecuador and Germany.

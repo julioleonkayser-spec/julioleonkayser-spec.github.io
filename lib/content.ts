@@ -28,14 +28,14 @@ export const CAREERS: TimelineEntry[] = [
     title: 'CRE Analyst Fellow / AI CRE Analyst @ Project Destined (remote)',
     place: 'Washington, D.C.',
     description:
-      'Applying institutional analytical frameworks (cap rate, NOI, rent roll, cash flow projections) to evaluate office, retail and multifamily assets under core, value-add and opportunistic strategies.',
+      'Applying institutional analytical frameworks (cap rate, NOI, rent roll, cash flow projections) to evaluate office, retail and multifamily assets under core, value-add and opportunistic strategies, factoring in supply and demand, zoning and rent growth.',
   },
   {
     period: 'May 2026 - June 2026',
     title: 'Backend Engineer @ Wells Fargo (Forage job simulation)',
     place: 'Remote',
     description:
-      'Designed and implemented a relational data model with 4 JPA entities for a financial portfolio management system.',
+      'Designed and implemented a relational data model with 4 JPA entities for a financial portfolio management system, using UUID primary keys, explicit relationship mappings and database-level constraints.',
   },
   {
     period: 'April 2026 - May 2026',
@@ -45,33 +45,53 @@ export const CAREERS: TimelineEntry[] = [
       "Completed Citi's Investment Banking job simulation through Forage. Built a target company profile for Best Buy, constructed a 3-statement income model, and performed trading comparables analysis.",
   },
   {
-    period: 'September 2024 - October 2025',
-    title: 'Market & Market Expansion Analyst @ Agualitsa',
+    period: '2025 - October 2025',
+    title: 'Market Analyst @ Agualitsa Textile Manufacturing',
     place: 'Guayaquil, Ecuador',
     description:
       "Designed a market expansion strategy identifying 3 new distribution channels with a projected 25% revenue uplift for Ecuador's leading thread manufacturer. Delivered an AI-driven competitive intelligence tool, adopted by company leadership, cutting manual research time by ~70%.",
+  },
+  {
+    period: 'September 2024 - January 2025',
+    title: 'Market Expansion Analyst @ Agualitsa',
+    place: 'Guayaquil, Ecuador',
+    description:
+      'Built the market expansion plan for an Ecuadorian ice company: market research, consumer trend analysis and stakeholder presentations to support the entry strategy.',
   },
   {
     period: 'March 2024 - May 2024',
     title: 'Travel Specialist / Travel Operations Intern @ World of TUI',
     place: 'Berlin, Germany',
     description:
-      'Identified operational inefficiencies across the Berlin hub and built KPI reporting dashboards for leadership, collaborating with multicultural teams in English, Spanish, and German.',
+      'Coordinated travel logistics for international clients and analysed booking trends across the Berlin hub. Identified operational inefficiencies and built KPI reporting dashboards for leadership, collaborating with multicultural teams in English, Spanish, and German.',
   },
 ];
 
 export interface Certification {
   name: string;
   issuer?: string;
+  /** Anthropic Academy no expone URL por credencial: se enlaza al catálogo. */
+  href?: string;
 }
 
+const ANTHROPIC_ACADEMY = 'https://academy.claude.com/';
+
 export const CERTIFICATIONS: Certification[] = [
-  { name: 'Claude Code in Action', issuer: 'Anthropic Academy' },
-  { name: 'Introduction to Agent Skills', issuer: 'Anthropic Academy' },
-  { name: 'AI Fluency Framework & Foundations', issuer: 'Anthropic Academy' },
+  { name: 'Building with the Claude API', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'Claude with Amazon Bedrock', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'Claude with Google Vertex AI', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'Claude Code in Action', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'Introduction to Agent Skills', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'Introduction to MCP', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'MCP: Advanced Topics', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'AI Fluency: Framework and Foundations', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'AI Capabilities and Limitations', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'Building Effective Human-Agent Teams', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'Introduction to Marketing', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'Introduction to Claude Cowork', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
+  { name: 'AI Fluency for Nonprofits', issuer: 'Anthropic Academy', href: ANTHROPIC_ACADEMY },
   { name: 'Investment Banking Job Simulation', issuer: 'Citi · Forage' },
   { name: 'Investment Management Job Simulation', issuer: 'Fidelity International · Forage' },
-  { name: 'Introduction to Marketing' },
 ];
 
 export interface Skill {
@@ -103,11 +123,19 @@ export const SKILLS_LEFT: { heading: string; items: Skill[] }[] = [
 
 export const SKILLS_RIGHT: { heading: string; items: Skill[] }[] = [
   {
+    heading: 'AI Practice',
+    items: [
+      { name: 'AI output evaluation & QA', stars: 5 },
+      { name: 'Task automation', stars: 5 },
+      { name: 'Responsible & secure AI use in organizations', stars: 4 },
+    ],
+  },
+  {
     heading: 'Languages',
     items: [
-      { name: 'Spanish (native)', stars: 5 },
-      { name: 'English (daily use)', stars: 5 },
-      { name: 'German (conversational)', stars: 3 },
+      { name: 'Spanish (native / bilingual)', stars: 5 },
+      { name: 'English (full professional)', stars: 5 },
+      { name: 'German (professional working)', stars: 4 },
     ],
   },
   {
@@ -132,7 +160,7 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    title: 'Auditix (founder)',
+    title: 'ReadyCase OS (founder)',
     logo: { src: '/images/auditix-logo.png', bg: '#ffffff' },
     description:
       'Case & document management for accounting studios and audit firms in LatAm. Clients upload documents straight from their phone, an internal engine auto-escalates stalled engagements and tracks task ownership, and an append-only audit log keeps per-tenant row-level isolation (row-level security).',

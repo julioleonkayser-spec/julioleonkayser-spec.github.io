@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://julio-portfolio-lake.vercel.app'),
   title: 'Julio León - AI Engineer & Product Builder - Interactive Resume',
   description:
-    "Hi, I'm an AI Engineer & Product Builder creating agentic AI pipelines, production RAG systems and full-stack products. Founder of Auditix and ReWarm.",
+    "Hi, I'm an AI Engineer & Product Builder creating agentic AI pipelines, production RAG systems and full-stack products. Founder of ReadyCase OS and ReWarm.",
   authors: [{ name: 'Julio León' }],
   keywords: [
     'Julio León',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     'AI agents',
     'RAG',
     'Full-stack',
-    'Auditix',
+    'ReadyCase OS',
     'ReWarm',
   ],
   openGraph: {

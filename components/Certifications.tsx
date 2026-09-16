@@ -23,12 +23,32 @@ export default function Certifications() {
       <div className="mx-6 mt-8 w-16 h-0.5 bg-gray-300 md:mx-auto md:relative md:-left-24" />
       <div className="container mt-8">
         <ul className="flex flex-wrap justify-center gap-4">
-          {CERTIFICATIONS.map((cert) => (
-            <li key={cert.name} className="border-2 border-yellow-400 py-2 px-4">
-              <strong>{cert.name}</strong>
-              {cert.issuer ? <span className="text-sm text-gray-500"> — {cert.issuer}</span> : null}
-            </li>
-          ))}
+          {CERTIFICATIONS.map((cert) => {
+            const label = (
+              <>
+                <strong>{cert.name}</strong>
+                {cert.issuer ? (
+                  <span className="text-sm text-gray-500"> — {cert.issuer}</span>
+                ) : null}
+              </>
+            );
+            return (
+              <li key={cert.name} className="border-2 border-yellow-400 py-2 px-4">
+                {cert.href ? (
+                  <a
+                    href={cert.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  label
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
