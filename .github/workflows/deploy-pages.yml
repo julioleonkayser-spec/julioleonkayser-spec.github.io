@@ -21,8 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # enablement: true activa Pages con source=GitHub Actions en el primer run,
-      # así no hace falta tocar Settings -> Pages a mano.
+      # OJO: enablement solo ACTIVA Pages si no lo estaba; no reconvierte una
+      # configuración legacy existente. Este repo se creó como user site y nació
+      # con build_type=legacy (source = rama main), así que servía la raíz del
+      # repo -- sin index.html -- y devolvía 404 pese a que el workflow pasaba.
+      # Se corrigió una vez con:
+      #   gh api -X PUT /repos/{owner}/{repo}/pages -f build_type=workflow
+      # Queda persistido en el repo; esto solo cubre un Pages aún sin crear.
       - uses: actions/configure-pages@v5
         with:
           enablement: true
