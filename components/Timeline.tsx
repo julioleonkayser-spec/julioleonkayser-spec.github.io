@@ -5,15 +5,20 @@ interface TimelineProps {
   id: string;
   heading: string;
   entries: TimelineEntry[];
+  /**
+   * El original da a cada sección la altura del viewport. Con una sola entrada
+   * eso deja una pantalla casi vacía, así que las listas cortas lo desactivan.
+   */
+  fillViewport?: boolean;
 }
 
 /**
  * Réplica exacta del patrón #careers del original: línea vertical absoluta en la
  * columna 2, nodos circulares, fecha a la derecha en la col 1, contenido en col 2-3.
  */
-export default function Timeline({ id, heading, entries }: TimelineProps) {
+export default function Timeline({ id, heading, entries, fillViewport = true }: TimelineProps) {
   return (
-    <section id={id} className="min-h-screen pt-5">
+    <section id={id} className={`pt-5 ${fillViewport ? 'min-h-screen' : 'pb-16'}`}>
       <div className="relative pb-5">
         <div className="absolute inset-0">
           <div className="container grid md:grid-cols-3 gap-8 items-center h-full">

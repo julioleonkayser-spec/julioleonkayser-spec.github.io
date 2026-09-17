@@ -8,7 +8,7 @@ import Projects from '@/components/Projects';
 import Reflections from '@/components/Reflections';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import { CAREERS } from '@/lib/content';
+import { CAREERS, EDUCATION } from '@/lib/content';
 
 export default function Home() {
   return (
@@ -18,6 +18,7 @@ export default function Home() {
       <div className="relative bg-white z-10">
         <About />
         <Timeline id="careers" heading="Careers" entries={CAREERS} />
+        <Timeline id="education" heading="Education" entries={EDUCATION} fillViewport={false} />
         <Abilities />
         <Certifications />
         <Projects />

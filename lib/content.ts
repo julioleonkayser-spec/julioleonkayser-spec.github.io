@@ -67,6 +67,21 @@ export const CAREERS: TimelineEntry[] = [
   },
 ];
 
+/**
+ * Education. Reusa TimelineEntry y el mismo componente Timeline que Careers.
+ * `period` queda vacío a propósito: el export de LinkedIn no trae fechas de
+ * titulación y no se inventan. Rellenar aquí cuando Julio las confirme.
+ */
+export const EDUCATION: TimelineEntry[] = [
+  {
+    period: '',
+    title: 'B.S. Business Analytics & Artificial Intelligence',
+    place: 'American University — Washington, D.C.',
+    description:
+      'Undergraduate degree combining business analytics with artificial intelligence — the academic grounding behind the agentic pipelines, RAG systems and data work in the projects above.',
+  },
+];
+
 export interface Certification {
   name: string;
   issuer?: string;
@@ -285,6 +300,7 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { label: 'About', href: '#about-me', icon: 'fa-solid fa-user' },
   { label: 'Careers', href: '#careers', icon: 'fa-solid fa-briefcase' },
+  { label: 'Education', href: '#education', icon: 'fa-solid fa-graduation-cap' },
   { label: 'Abilities', href: '#abilities', icon: 'fa-solid fa-star' },
   { label: 'Certifications', href: '#certifications', icon: 'fa-solid fa-award' },
   { label: 'Projects', href: '#projects', icon: 'fa-solid fa-diagram-project' },
