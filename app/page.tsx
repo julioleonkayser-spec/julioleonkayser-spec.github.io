@@ -5,7 +5,6 @@ import Timeline from '@/components/Timeline';
 import Abilities from '@/components/Abilities';
 import Certifications from '@/components/Certifications';
 import Projects from '@/components/Projects';
-import Reflections from '@/components/Reflections';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { CAREERS, EDUCATION } from '@/lib/content';
@@ -22,7 +21,6 @@ export default function Home() {
         <Abilities />
         <Certifications />
         <Projects />
-        <Reflections />
         <Contact />
         <Footer />
       </div>

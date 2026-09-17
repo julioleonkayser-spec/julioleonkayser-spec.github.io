@@ -135,9 +135,6 @@ un valor extraído, todos son composición sobre la paleta y la tipografía veri
   solo contiene 5 glifos (`\e800`, `\e801`, `\f099`, `\f09b`, `\f0e1`), insuficiente para
   la navegación. Font Awesome entra por npm y se sirve desde el bundle propio: sin CDN
   y sin recurso de terceros bloqueando el render.
-- **Sección Reflections** (`components/Reflections.tsx`). Replica el patrón de sección de
-  Certifications (tag amarillo, subtítulo `text-xl` gris, divisor `gray-300`, borde
-  `yellow-400`) sin introducir tratamiento nuevo.
 - **Visual `decision-flow`** (`components/ProjectVisuals.tsx`). Mismo contrato que los
   visuales ya existentes (viewBox 1280×720, `aspect-video`, tinte radial del hero por
   encima). Las aristas usan `blue-400` para YES y `red-400` para NO: el verde no existe

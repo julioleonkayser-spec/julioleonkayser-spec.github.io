@@ -304,45 +304,5 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Abilities', href: '#abilities', icon: 'fa-solid fa-star' },
   { label: 'Certifications', href: '#certifications', icon: 'fa-solid fa-award' },
   { label: 'Projects', href: '#projects', icon: 'fa-solid fa-diagram-project' },
-  { label: 'Reflections', href: '#reflections', icon: 'fa-solid fa-pen-nib' },
   { label: 'Contact', href: '#contact', icon: 'fa-solid fa-paper-plane' },
-];
-
-/* ------------------------------------------------------------------ *
- * Reflections
- * ------------------------------------------------------------------ */
-
-export interface Reflection {
-  /** Título del prompt, tal y como lo pide la asignación. */
-  prompt: string;
-  /** Clase de Font Awesome 6 Free. */
-  icon: string;
-  /** Pista de una línea sobre qué responder. No se renderiza como respuesta. */
-  hint: string;
-  /**
-   * La respuesta escrita por Julio. Cadena vacía => la card se pinta como
-   * placeholder "to be written". Rellenar aquí y la card se renderiza sola.
-   */
-  answer: string;
-}
-
-export const REFLECTIONS: Reflection[] = [
-  {
-    prompt: 'Building Websites with AI',
-    icon: 'fa-solid fa-robot',
-    hint: 'What worked, what did not, and where AI actually changed how this site got built.',
-    answer: '',
-  },
-  {
-    prompt: 'Interview Question',
-    icon: 'fa-solid fa-comments',
-    hint: 'The interview question and your answer.',
-    answer: '',
-  },
-  {
-    prompt: 'LinkedIn Post',
-    icon: 'fa-brands fa-linkedin',
-    hint: 'The post you published, and what you took away from writing it.',
-    answer: '',
-  },
 ];
